@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './components/Header'
 import Header from './components/Header';
@@ -9,8 +8,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main style={{display: 'flex'}}>
-        <div style={{margin: 'auto'}} className="grid grid-cols-1 gap-4 place-content-center">
+      <main>
+        <div className="m-20 
+          grid sm:grid-cols-2 
+          min-[950px]:grid-cols-3 
+          xl:grid-cols-4 2xl:grid-cols-5 
+          gap-4 place-content-center">
+          <Event />
+          <Event />
+          <Event />
+          <Event />
+          <Event />
           <Event />
         </div>
       </main>
