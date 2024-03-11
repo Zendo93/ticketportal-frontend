@@ -1,4 +1,4 @@
-import EventEdit from "./EventEdit";
+import EventEdit from "./EventEdit/EventEdit";
 import Events from "./Events";
 import {
     createBrowserRouter,
