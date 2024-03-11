@@ -9,35 +9,28 @@ import CoverImage from "./Inputs/CoverImage";
 import {
     useParams
   } from "react-router-dom";
+import SaveButton from "./Buttons/SaveButton";
+import CreateButton from "./Buttons/CreateButton";
+import { useSelector } from "react-redux";
 
 export default function EventEdit() {
-    const params = useParams();
+    const {id} = useParams();
+    const events = useSelector(state => state.events.value);
+    const event = events.find(event => event.id == id);
 
     return (
         <div className="max-w-md p-4 mx-auto">
             <form className="full grid sm:grid-cols-2 gap-4 gap-x-10">
-                <EventName />
-                <Viewpoint />
-                <Address />
-                <Start />
-                <Price />
+                <EventName  name={event.name} />
+                <Viewpoint viewpoint={event.viewpoint} />
+                <Address address={event.address} />
+                <Start start={event.start} />
+                <Price price={event.price} />
                 <RowNumber />
                 <ColumnNumber />
-                <CoverImage />
-                <div>
-                    <div>
-                        <button className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                            Uložiť
-                        </button>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <button className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                            Vytvoriť
-                        </button>
-                    </div>
-                </div>
+                <CoverImage coverImage={event.coverImage} />
+                <SaveButton />
+                <CreateButton />
             </form>
         </div>
     );

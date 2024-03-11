@@ -1,4 +1,6 @@
-export default function CoverImage() {
+export default function CoverImage(props) {
+    const {coverImage} = props;
+
     return (
         <>
             
@@ -26,7 +28,7 @@ export default function CoverImage() {
             </div>
             <div>
                 <div>
-                    <img src="/media.jpg"/>
+                    <img src={coverImage} />
                 </div>
             </div>
         </>

@@ -10,7 +10,7 @@ export default function Events() {
             min-[950px]:grid-cols-3 
             xl:grid-cols-4 2xl:grid-cols-5 
             gap-4 place-content-center">
-            {events.map(event => <Event {...event} />)}
+            {events.map(event => <Event key={event.id} {...event} />)}
         </div>
     ); 
 }
