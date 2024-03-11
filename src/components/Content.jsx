@@ -5,8 +5,8 @@ import Events from "./Events";
 export default function Content() {
     return (
         <main className="h-full">
-            {/*<Events />*/}
-            <EventEdit />
+            <Events />
+            {/*<EventEdit />*/}
         </main>
     );
 }
