@@ -14,7 +14,7 @@ import CreateButton from "../Buttons/CreateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setEditedEvent } from "../../app/reducers/editedEventSlice";
-import { onAddressChangeHandler, onCoverImageChangeHandler, onNameChangeHandler, onPriceChangeHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
+import { onAddressChangeHandler, onCoverImageChangeHandler, onNameChangeHandler, onPriceChangeHandler, onSaveHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
 
 export default function EventEdit() {
     const {id} = useParams();
@@ -26,6 +26,7 @@ export default function EventEdit() {
     const start = useSelector(state => state.editedEvent.start);
     const price = useSelector(state => state.editedEvent.price);
     const coverImage = useSelector(state => state.editedEvent.coverImage);
+    const editedEvent = useSelector(state => state.editedEvent);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -44,7 +45,7 @@ export default function EventEdit() {
                 {/*<RowNumber />
                 <ColumnNumber />*/}
                 <CoverImage onCoverImageChangeHandler={onCoverImageChangeHandler} coverImage={coverImage} />
-                <SaveButton />
+                <SaveButton event={editedEvent} onSaveHandler={onSaveHandler}/>
                 <CreateButton />
             </form>
         </div>
