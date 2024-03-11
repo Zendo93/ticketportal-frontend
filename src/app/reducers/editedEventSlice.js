@@ -32,46 +32,22 @@ export const editedEventSlice = createSlice({
         state.coverImage = coverImage;
     },
     setName: (state, action) => {
-        const {
-            name,
-        } = action.payload;
-
-        state.name = name;
+        state.name = action.payload;
     },
     setViewpoint: (state, action) => {
-        const {
-            viewpoint,
-        } = action.payload;
-
-        state.viewpoint = viewpoint;
+        state.viewpoint = action.payload;
     },
     setAddress: (state, action) => {
-        const {
-            address,
-        } = action.payload;
-
-        state.address = address;
+        state.address = action.payload;
     },
     setStart: (state, action) => {
-        const {
-            start,
-        } = action.payload;
-
-        state.start = start;
+        state.start = action.payload;
     },
     setPrice: (state, action) => {
-        const {
-            price,
-        } = action.payload;
-
-        state.price = price;
+        state.price = action.payload;
     },
     setCoverImage: (state, action) => {
-        const {
-            coverImage,
-        } = action.payload;
-
-        state.coverImage = coverImage;
+        state.coverImage = action.payload;
     },
   }
 })

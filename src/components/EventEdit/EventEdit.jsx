@@ -14,6 +14,7 @@ import CreateButton from "../Buttons/CreateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setEditedEvent } from "../../app/reducers/editedEventSlice";
+import { onAddressChangeHandler, onCoverImageChangeHandler, onNameChangeHandler, onPriceChangeHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
 
 export default function EventEdit() {
     const {id} = useParams();
@@ -35,14 +36,14 @@ export default function EventEdit() {
     return (
         <div className="max-w-md p-4 mx-auto">
             <form className="full grid sm:grid-cols-2 gap-4 gap-x-10">
-                <EventName  name={name} />
-                <Viewpoint viewpoint={viewpoint} />
-                <Address address={address} />
-                <Start start={start} />
-                <Price price={price} />
-                <RowNumber />
-                <ColumnNumber />
-                <CoverImage coverImage={coverImage} />
+                <EventName onNameChangeHandler={onNameChangeHandler}  name={name} />
+                <Viewpoint onViewpointChangeHandler={onViewpointChangeHandler} viewpoint={viewpoint} />
+                <Address onAddressChangeHandler={onAddressChangeHandler} address={address} />
+                <Start onStartChangeHandler={onStartChangeHandler} start={start} />
+                <Price onPriceChangeHandler={onPriceChangeHandler} price={price} />
+                {/*<RowNumber />
+                <ColumnNumber />*/}
+                <CoverImage onCoverImageChangeHandler={onCoverImageChangeHandler} coverImage={coverImage} />
                 <SaveButton />
                 <CreateButton />
             </form>

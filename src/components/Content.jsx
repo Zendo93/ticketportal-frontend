@@ -14,7 +14,7 @@ export default function Content() {
         {
           path: "/edit/:id",
           element: <EventEdit />,
-        },
+        }
       ]);
 
 
