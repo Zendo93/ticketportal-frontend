@@ -1,3 +1,4 @@
+import { createEvent } from "../../app/reducers/eventsSlice";
 import { setAddress, setCoverImage, setName, setPrice, setStart, setViewpoint } from "../../app/reducers/editedEventSlice";
 import { updateEvent } from "../../app/reducers/eventsSlice";
 
@@ -29,5 +30,10 @@ export function onCoverImageChangeHandler(e, dispatch) {
 
 export function onSaveHandler(_, dispatch, navigate, event) {
     dispatch(updateEvent(event));
+    navigate('/');
+}
+
+export function onCreateHandler(_, dispatch, navigate, event) {
+    dispatch(createEvent(event));
     navigate('/');
 }
