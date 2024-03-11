@@ -26,7 +26,7 @@ export default function CoverImage() {
             </div>
             <div>
                 <div>
-                    <img src="media.jpg"/>
+                    <img src="/media.jpg"/>
                 </div>
             </div>
         </>

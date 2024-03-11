@@ -1,12 +1,26 @@
-import Event from "./Event";
 import EventEdit from "./EventEdit";
 import Events from "./Events";
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";  
 
 export default function Content() {
+    const router = createBrowserRouter([
+        {
+          path: "/",
+          element: <Events />,
+        },
+        {
+          path: "/edit/:id",
+          element: <EventEdit />,
+        },
+      ]);
+
+
     return (
         <main className="h-full">
-            <Events />
-            {/*<EventEdit />*/}
+            <RouterProvider router={router} />
         </main>
     );
 }

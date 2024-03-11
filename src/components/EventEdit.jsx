@@ -6,8 +6,13 @@ import Price from "./Inputs/Price";
 import RowNumber from "./Inputs/RowNumber";
 import ColumnNumber from "./Inputs/ColumnNumber";
 import CoverImage from "./Inputs/CoverImage";
+import {
+    useParams
+  } from "react-router-dom";
 
 export default function EventEdit() {
+    const params = useParams();
+
     return (
         <div className="max-w-md p-4 mx-auto">
             <form className="full grid sm:grid-cols-2 gap-4 gap-x-10">
