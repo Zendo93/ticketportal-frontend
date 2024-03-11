@@ -9,7 +9,7 @@ import CoverImage from "./Inputs/CoverImage";
 
 export default function EventEdit() {
     return (
-        <form className="w-full max-w-sm">
+        <form className="full grid sm:grid-cols-2 gap-4 gap-x-10">
             <EventName />
             <Viewpoint />
             <Address />
@@ -18,14 +18,15 @@ export default function EventEdit() {
             <RowNumber />
             <ColumnNumber />
             <CoverImage />
-            <div className="md:flex md:items-center">
-                <div className="md:w-1/4"></div>
-                <div className="md:w-1/4 mt-1">
+            <div>
+                <div>
                     <button className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
                         Uložiť
                     </button>
                 </div>
-                <div className="md:w-1/4 mt-1">
+            </div>
+            <div>
+                <div>
                     <button className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
                         Vytvoriť
                     </button>

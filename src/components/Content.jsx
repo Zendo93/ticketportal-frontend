@@ -6,7 +6,7 @@ export default function Content() {
     return (
         <main className="h-full">
             {/*<Events />*/}
-            <div className="max-w-sm p-4 mx-auto">
+            <div className="max-w-md p-4 mx-auto">
                 <EventEdit />
             </div>
         </main>
