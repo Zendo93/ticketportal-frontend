@@ -1,5 +1,5 @@
 import { createEvent } from "../../app/reducers/eventsSlice";
-import { setAddress, setCoverImage, setName, setPrice, setStart, setViewpoint } from "../../app/reducers/editedEventSlice";
+import { setAddress, setColumnNumber, setCoverImage, setName, setPrice, setRowNumber, setStart, setViewpoint } from "../../app/reducers/editedEventSlice";
 import { updateEvent } from "../../app/reducers/eventsSlice";
 
 export function onNameChangeHandler(e, dispatch) {
@@ -26,6 +26,14 @@ export function onCoverImageChangeHandler(e, dispatch) {
     if (e.target.files?.[0]?.type?.split('/')?.[0] === 'image') {
         dispatch(setCoverImage(URL.createObjectURL(e.target.files[0])));
     }
+}
+
+export function onRowNumberChangeHandler(e, dispatch) {
+    dispatch(setRowNumber(e.target.value));
+}
+
+export function onColumnNumberChangeHandler(e, dispatch) {
+    dispatch(setColumnNumber(e.target.value));
 }
 
 export function onSaveHandler(_, dispatch, navigate, event) {

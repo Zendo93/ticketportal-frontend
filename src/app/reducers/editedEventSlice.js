@@ -9,7 +9,9 @@ export const editedEventSlice = createSlice({
     address: '',
     start: '',
     price: '',
-    coverImage: ''
+    coverImage: '',
+    rowNumber: '',
+    columnNumber: '' 
   },
   reducers: {
     setEditedEvent: (state, action) => {
@@ -20,7 +22,9 @@ export const editedEventSlice = createSlice({
             address,
             start,
             price,
-            coverImage
+            coverImage,
+            rowNumber,
+            columnNumber
         } = action.payload;
 
         state.id = id;
@@ -30,6 +34,8 @@ export const editedEventSlice = createSlice({
         state.start = start;
         state.price = price;
         state.coverImage = coverImage;
+        state.rowNumber = rowNumber;
+        state.columnNumber = columnNumber;
     },
     setName: (state, action) => {
         state.name = action.payload;
@@ -49,6 +55,12 @@ export const editedEventSlice = createSlice({
     setCoverImage: (state, action) => {
         state.coverImage = action.payload;
     },
+    setRowNumber: (state, action) => {
+        state.rowNumber = action.payload;
+    },
+    setColumnNumber: (state, action) => {
+        state.columnNumber = action.payload;
+    },
   }
 })
 
@@ -59,7 +71,9 @@ export const { setEditedEvent,
                 setAddress,
                 setPrice,
                 setStart,
-                setCoverImage
+                setCoverImage,
+                setRowNumber,
+                setColumnNumber
             } = editedEventSlice.actions
 
 export default editedEventSlice.reducer
