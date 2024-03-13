@@ -50,6 +50,32 @@ export default function EventEdit() {
                 <SaveButton event={editedEvent} onSaveHandler={onSaveHandler} />
                 <CreateButton event={editedEvent} onCreateHandler={onCreateHandler} />
             </form>
+            <div>
+                <hr class="w-100 h-1 mx-auto my-4 bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700" />
+                <div className="inline-flex flex-wrap justify-between">
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                    <div class="box-border flex border-gray-500 h-16 w-16 p-4 border-4 my-2">
+                        <div class="m-auto">5</div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
