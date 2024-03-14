@@ -1,10 +1,17 @@
 import Seat from "./Seat";
+import { useSelector } from "react-redux";
 
 export default function Room() {
+    const rowNumber = useSelector(state => state.editedEvent.rowNumber);
+    const columnNumber = useSelector(state => state.editedEvent.columnNumber);
+
     return (
         <div>
             <hr class="w-100 h-1 mx-auto my-4 bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700" />
-            <div className="inline-flex flex-wrap justify-between">
+            <div style={{ gridTemplateColumns: `repeat(${columnNumber}, minmax(0, 1fr))`}} className={`grid m-auto w-max gap-4`}>
+                <Seat />
+                <Seat />
+                <Seat />
                 <Seat />
                 <Seat />
                 <Seat />
