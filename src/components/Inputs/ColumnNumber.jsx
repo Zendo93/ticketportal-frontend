@@ -15,7 +15,7 @@ export default function ColumnNumber(props) {
                 </label>
             </div>
             <div>
-                <input onChange={(e) => onColumnNumberChangeHandler(e, dispatch)} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-event-column-number" type="number" value={columnNumber} />
+                <input max={12} onChange={(e) => onColumnNumberChangeHandler(e, dispatch)} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-event-column-number" type="number" value={columnNumber} />
             </div>
         </>
     );

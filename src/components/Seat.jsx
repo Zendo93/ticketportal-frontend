@@ -1,4 +1,6 @@
-export default function Seat() {
+export default function Seat(props) {
+    const { seatNumber} = props;
+    
     return (
         <div class="box-border group relative flex border-gray-500 h-16 w-16 p-4 border-4">
             <div class="absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] hidden group-hover:block w-auto">
@@ -7,7 +9,7 @@ export default function Seat() {
                     <svg class="absolute left-0 top-full h-2 w-full text-black" x="0px" y="0px" viewBox="0 0 255 255" /*xml:space="preserve"*/><polygon class="fill-current" points="0,0 127.5,127.5 255,0" /></svg>
                 </div>
             </div>
-            <div class="m-auto">5</div>
+            <div class="m-auto">{seatNumber}</div>
         </div>
     );
 }
