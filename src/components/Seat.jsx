@@ -9,7 +9,7 @@ export default function Seat(props) {
                     <svg class="absolute left-0 top-full h-2 w-full text-black" x="0px" y="0px" viewBox="0 0 255 255" /*xml:space="preserve"*/><polygon class="fill-current" points="0,0 127.5,127.5 255,0" /></svg>
                 </div>
             </div>
-            <div class="m-auto">{seatNumber}</div>
+            <div class="m-auto text-xs">{seatNumber}</div>
         </div>
     );
 }
