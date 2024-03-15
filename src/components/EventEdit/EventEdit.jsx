@@ -38,6 +38,7 @@ export default function EventEdit() {
     },[])
 
     return (
+        <>
         <div className="max-w-md p-4 mx-auto">
             <form className="full grid sm:grid-cols-2 gap-4 gap-x-10">
                 <EventName onNameChangeHandler={onNameChangeHandler}  name={name} />
@@ -51,7 +52,8 @@ export default function EventEdit() {
                 <SaveButton event={editedEvent} onSaveHandler={onSaveHandler} />
                 <CreateButton event={editedEvent} onCreateHandler={onCreateHandler} />
             </form>
-            <Room />
         </div>
+        <Room />
+        </>
     );
 }
