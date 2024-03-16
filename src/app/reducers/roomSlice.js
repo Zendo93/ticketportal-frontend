@@ -9,9 +9,18 @@ export const roomSlice = createSlice({
     setSeats: (state, action) => {
         state.seats = action.payload;
     },
+    selectSeat: (state, action) => {
+        const {
+            row,
+            position,
+            selected
+        } = action.payload;
+        
+        state.seats[row][position] = {...state.seats[row][position], selected: selected};
+    }
   },
 })
 
-export const { setSeats } = roomSlice.actions;
+export const { setSeats, selectSeat } = roomSlice.actions;
 
 export default roomSlice.reducer;

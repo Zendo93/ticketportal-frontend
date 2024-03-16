@@ -1,17 +1,29 @@
+import { useDispatch } from "react-redux";
+import { selectSeat } from "../app/reducers/roomSlice";
+
 export default function Seat(props) {
     const {
         status,
         row, 
         position,
-        price
+        price,
+        selected
     } = props;
+
+    const dispatch = useDispatch();
 
     //top-[calc(100%+0.5rem)]
     //z-index: 1
     //svg bottom: 100%     transform: rotate(180deg);
 
+    const onSeatSelect = (seat, dispatch) => {
+        if (status !== "predané") {
+            dispatch(selectSeat(seat));
+        }
+    }
+
     return (
-        <div class={`box-border group relative flex border-gray-500 w-8 h-8 border-4 ${status === "predané" ? 'bg-red-700' : ''}`}>
+        <div onClick={(e) => onSeatSelect({status: status, row: row, position: position, selected: !selected}, dispatch)} class={`box-border group relative flex border-gray-500 w-8 h-8 border-4 ${status === "predané" ? 'bg-red-700' : ''} ${selected ? 'bg-red-300' : ''}`}>
             <div class="absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] hidden w-max group-hover:block">
                 <div class="bottom-full right-0 rounded bg-black px-4 py-1 text-xs text-white whitespace-nowrap">
                     <div class="grid grid-cols-2 gap-x-2 justify-items-start">

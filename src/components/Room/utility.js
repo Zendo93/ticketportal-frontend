@@ -9,7 +9,8 @@ export const createSeats = (row, column) => {
                 status: Math.floor(Math.random() * 2) ? "volné" : "predané",
                 row: i,
                 position: j,
-                price: Math.floor(Math.random() * 31)
+                price: Math.floor(Math.random() * 31),
+                selected: false,
             }) 
         }
 
