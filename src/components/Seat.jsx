@@ -11,7 +11,7 @@ export default function Seat(props) {
     //svg bottom: 100%     transform: rotate(180deg);
 
     return (
-        <div class="box-border group relative flex border-gray-500 w-8 h-8 border-4">
+        <div class={`box-border group relative flex border-gray-500 w-8 h-8 border-4 ${status === "predané" ? 'bg-red-700' : ''}`}>
             <div class="absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] hidden w-max group-hover:block">
                 <div class="bottom-full right-0 rounded bg-black px-4 py-1 text-xs text-white whitespace-nowrap">
                     <div class="grid grid-cols-2 gap-x-2 justify-items-start">
