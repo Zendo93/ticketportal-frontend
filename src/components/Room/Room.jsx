@@ -1,19 +1,32 @@
-import Seat from "./Seat";
-import { useSelector } from "react-redux";
+import { setSeats } from "../../app/reducers/roomSlice";
+import Seat from "../Seat";
+import { useDispatch, useSelector } from "react-redux";
+import { createSeats } from "./utility";
+import { useEffect } from "react";
 
 export default function Room() {
     const rowNumber = useSelector(state => state.editedEvent.rowNumber);
     const columnNumber = useSelector(state => state.editedEvent.columnNumber);
-
-    const getSeats = (count) => {
+    const seats = useSelector(state => state.room.seats);
+    const dispatch = useDispatch();
+    
+    
+    const getSeats = (seatsData) => {
         const seats = [];
-
-        for (let i=1; i <= count; i++) {
-            seats.push(<Seat seatNumber={i} />)
+        for (let i=0; i < seatsData.length; i++) {
+            for (let j=0; j < seatsData[i].length; j++) {
+                seats.push(<Seat {...seatsData[i][j]} />)
+            }
         }
 
         return seats;
     }
+
+
+    useEffect(() => {
+        dispatch(setSeats(createSeats(rowNumber, columnNumber)));
+        return () => {};
+    },[rowNumber, columnNumber])
 
     return (
         <div className="m-2.5 overflow-auto">
@@ -21,7 +34,7 @@ export default function Room() {
                 style={{width: `${Math.round(((50 - 10) / 12) * columnNumber + 10)}rem`}}/>
             <div className="ml-[40%] w-max sm:ml-auto sm:w-auto"> 
                 <div style={{ gridTemplateColumns: `repeat(${columnNumber}, minmax(0, 1fr))`}} className={`grid m-auto w-max gap-4`}>
-                    {getSeats(rowNumber*columnNumber)}
+                    {getSeats(seats)}
                 </div>
             </div>
         </div>

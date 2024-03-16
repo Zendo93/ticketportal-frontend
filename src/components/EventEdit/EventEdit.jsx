@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setEditedEvent } from "../../app/reducers/editedEventSlice";
 import { onAddressChangeHandler, onColumnNumberChangeHandler, onCoverImageChangeHandler, onCreateHandler, onNameChangeHandler, onPriceChangeHandler, onRowNumberChangeHandler, onSaveHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
-import Room from "../Room";
+import Room from "../Room/Room";
 
 export default function EventEdit() {
     const {id} = useParams();
@@ -30,6 +30,8 @@ export default function EventEdit() {
     const rowNumber = useSelector(state => state.editedEvent.rowNumber);
     const columnNumber = useSelector(state => state.editedEvent.columnNumber);
     const editedEvent = useSelector(state => state.editedEvent);
+    
+    console.log(editedEvent);
     const dispatch = useDispatch();
 
     useEffect(() => {
