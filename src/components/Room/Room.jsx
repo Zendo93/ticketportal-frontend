@@ -13,9 +13,10 @@ export default function Room() {
     
     const getSeats = (seatsData) => {
         const seats = [];
+        let key = 1;
         for (let i=0; i < seatsData.length; i++) {
             for (let j=0; j < seatsData[i].length; j++) {
-                seats.push(<Seat {...seatsData[i][j]} />)
+                seats.push(<Seat key={key++} {...seatsData[i][j]} />)
             }
         }
 
@@ -30,7 +31,7 @@ export default function Room() {
 
     return (
         <div className="m-2.5 overflow-auto">
-            <hr class="mx-[60px] h-1 sm:mx-auto my-4 bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700"
+            <hr className="mx-[60px] h-1 sm:mx-auto my-4 bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700"
                 style={{width: `${Math.round(((50 - 10) / 12) * columnNumber + 10)}rem`}}/>
             <div className="ml-[40%] w-max sm:ml-auto sm:w-auto"> 
                 <div style={{ gridTemplateColumns: `repeat(${columnNumber}, minmax(0, 1fr))`}} className={`grid m-auto w-max gap-4`}>

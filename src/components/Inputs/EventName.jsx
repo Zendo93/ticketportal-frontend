@@ -9,7 +9,7 @@ export default function EventName(props) {
     return (
         <>
             <div className="align-middle">
-                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-event-name">
+                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-event-name">
                     Názov podujatia
                 </label>
             </div>
