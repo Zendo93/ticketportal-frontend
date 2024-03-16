@@ -31,7 +31,6 @@ export default function EventEdit() {
     const columnNumber = useSelector(state => state.editedEvent.columnNumber);
     const editedEvent = useSelector(state => state.editedEvent);
     
-    console.log(editedEvent);
     const dispatch = useDispatch();
 
     useEffect(() => {
