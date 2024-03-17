@@ -16,6 +16,8 @@ import { useEffect } from "react";
 import { setEditedEvent } from "../../app/reducers/editedEventSlice";
 import { onAddressChangeHandler, onColumnNumberChangeHandler, onCoverImageChangeHandler, onCreateHandler, onNameChangeHandler, onPriceChangeHandler, onRowNumberChangeHandler, onSaveHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
 import Room from "../Room/Room";
+import { ShoppingCartIcon } from "../ShoppingCartIcon";
+import { getSelectedSeats } from "../../app/reducers/roomSlice";
 
 export default function EventEdit() {
     const {id} = useParams();
@@ -30,7 +32,7 @@ export default function EventEdit() {
     const rowNumber = useSelector(state => state.editedEvent.rowNumber);
     const columnNumber = useSelector(state => state.editedEvent.columnNumber);
     const editedEvent = useSelector(state => state.editedEvent);
-    
+    const selectedSeats = useSelector(getSelectedSeats);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -53,6 +55,9 @@ export default function EventEdit() {
                 <SaveButton event={editedEvent} onSaveHandler={onSaveHandler} />
                 <CreateButton event={editedEvent} onCreateHandler={onCreateHandler} />
             </form>
+        </div>
+        <div className="m-2.5 mx-auto w-fit">
+            <ShoppingCartIcon count={selectedSeats.length} />
         </div>
         <Room />
         </>
