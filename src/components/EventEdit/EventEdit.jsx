@@ -14,10 +14,11 @@ import CreateButton from "../Buttons/CreateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setEditedEvent } from "../../app/reducers/editedEventSlice";
-import { onAddressChangeHandler, onColumnNumberChangeHandler, onCoverImageChangeHandler, onCreateHandler, onNameChangeHandler, onPriceChangeHandler, onRowNumberChangeHandler, onSaveHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
+import { getItems, onAddressChangeHandler, onColumnNumberChangeHandler, onCoverImageChangeHandler, onCreateHandler, onNameChangeHandler, onPriceChangeHandler, onRowNumberChangeHandler, onSaveHandler, onShoppingCartCloseHandler, onShoppingCartOpenHandler, onStartChangeHandler, onViewpointChangeHandler } from "./utility";
 import Room from "../Room/Room";
-import { ShoppingCartIcon } from "../ShoppingCartIcon";
+import { ShoppingCartIcon } from "../ShoppingCart/ShoppingCartIcon";
 import { getSelectedSeats } from "../../app/reducers/roomSlice";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 export default function EventEdit() {
     const {id} = useParams();
@@ -32,6 +33,7 @@ export default function EventEdit() {
     const rowNumber = useSelector(state => state.editedEvent.rowNumber);
     const columnNumber = useSelector(state => state.editedEvent.columnNumber);
     const editedEvent = useSelector(state => state.editedEvent);
+    const isShoppingCardOpen = useSelector(state => state.shoppingCart.open);
     const selectedSeats = useSelector(getSelectedSeats);
     const dispatch = useDispatch();
 
@@ -57,7 +59,8 @@ export default function EventEdit() {
             </form>
         </div>
         <div className="m-2.5 mx-auto w-fit">
-            <ShoppingCartIcon count={selectedSeats.length} />
+            <ShoppingCartIcon onShoppingCartOpenHandler={onShoppingCartOpenHandler} count={selectedSeats.length} />
+            {isShoppingCardOpen && <ShoppingCart onShoppingCartCloseHandler={onShoppingCartCloseHandler} items={getItems(selectedSeats, coverImage)} />}
         </div>
         <Room />
         </>
